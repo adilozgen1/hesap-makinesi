@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #hesapmakinesi {
+        background-color: black;
+        width: 400px;
+        height: 400px;
+        margin: auto;
+      }
+
+      #sonuc {
+        width: 350px;
+        height: 50px;
+        align-items: center;
+        margin: 10px 0px 10px 20px;
+      }
+      #sayılar {
+        text-align: center;
+      }
+      #sayılar button {
+        width: 80px;
+        height: 80px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="hesapmakinesi">
+      <div id="ekrann">
+        <input type="text" id="sonuc" placeholder="Bir Sayı Giriniz.." />
+      </div>
+      <div id="sayılar">
+        <button type="button" value="7">7</button>
+        <button type="button" value="8">8</button>
+        <button type="button" value="9">9</button>
+        <button type="button" value="+">+</button>
+        <button type="button" value="4">4</button>
+        <button type="button" value="5">5</button>
+        <button type="button" value="6">6</button>
+        <button type="button" value="-">-</button>
+        <button type="button" value="1">1</button>
+        <button type="button" value="2">2</button>
+        <button type="button" value="3">3</button>
+        <button type="button" value="/">/</button>
+        <button type="button" value="0">0</button>
+        <button type="button" value="C" class="temizle">C</button>
+        <button type="button" value="=" class="hesapla">=</button>
+        <button type="button" value="*">*</button>
+      </div>
+    </div>
+
+    <script>
+      let dügme = document.getElementsByTagName("button");
+      let ekran = document.querySelector("#sonuc");
+      let temizle = document.querySelector(".temizle");
+      let hesapla = document.querySelector(".hesapla");
+
+      for (let i = 0; i < dügme.length; i++) {
+        if (i != 13 && i != 14) {
+          dügme[i].addEventListener("click", yazdır);
+        }
+      }
+
+      function yazdır() {
+        ekran.value = ekran.value + this.value;
+      }
+
+      hesapla.onclick = function () {
+        ekran.value = eval(ekran.value);
+      };
+
+      temizle.onclick = function () {
+        ekran.value = "";
+      };
+    </script>
+  </body>
+</html>
